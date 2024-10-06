@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ReviewCellView: View {
-    @StateObject var review 
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Commentaire:")
                 .bold()
-            TextEditor()
+            
         }
         
     }
@@ -21,5 +21,4 @@ struct ReviewCellView: View {
 
 #Preview {
     ReviewCellView()
-        .environmentObject(ReviewViewModel())
 }

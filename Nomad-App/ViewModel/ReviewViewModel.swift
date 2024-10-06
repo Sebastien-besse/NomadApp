@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class ReviewViewModel: ObservableObject{
+    
+    @Published var reviews : [Review] = []
+    
+    func addReview(post: String, note: Int8){
+        let review = Review(post: post, note: note)
+        reviews.append(review)
+    }
+    
+    
+}

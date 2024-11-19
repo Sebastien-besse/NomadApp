@@ -87,28 +87,3 @@ struct CityCellView: View {
     CityCellView(city: cities[0])
 }
 
-/*
- Voici les styles qui sont utilisés dans cette cellule :
- Image:
- Corner radius : 16
- 
- Rang:
- Le rang (en haut à gauche) : 16 + bold
- 
- Wifi:
- L’icône wifi (en haut à droite) :
- Le nombre : 16 + bold
- “Mbps” : 10 + bold
- 
- Nom de la ville : 22 + bold
- 
- Pays: 12 + semibold
- Température : 16 + bold
- Coût moyen : 16 + bold
- ‎
-
- Pour mieux distinguer les textes de l’image de fond :
-
- Une ombre est appliqué sur tous les textes
- Un rectangle noir d’opacité 15% est appliqué sur l’image
- */

@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct City: Identifiable{
+class City: Identifiable, ObservableObject{
     let id = UUID()
     let image: String
     let rang: Int
@@ -15,5 +15,16 @@ struct City: Identifiable{
     let wifi: Int
     let averageCost: Int
     let weather: Weather
-    let review: [Review]?
+    var review: [Review]?
+    
+    init(image: String, rang: Int, city: String, country: String, wifi: Int, averageCost: Int, weather: Weather, review: [Review]?) {
+        self.image = image
+        self.rang = rang
+        self.city = city
+        self.country = country
+        self.wifi = wifi
+        self.averageCost = averageCost
+        self.weather = weather
+        self.review = review
+    }
 }

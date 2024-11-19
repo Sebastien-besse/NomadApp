@@ -16,15 +16,9 @@ struct CitiesListView: View {
                     ForEach(citiesList){city in
                         NavigationLink{
                         CityDetailView(city: city)
-                                
-                       
                         }label:{
                             CityCellView(city: city)
-                              
                         }
-                        
-                        
-                    
                     }
                 }
                 .padding()

@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct CityDetailView: View {
-    
+    @EnvironmentObject var reviews : ReviewViewModel
+    @State var post : String = ""
+    @State var note : Int8 = 3
     let city: City
     
     var body: some View {
@@ -28,10 +30,9 @@ struct CityDetailView: View {
                             }
                             .shadow(color: .black, radius: 8, x: 0, y: 10)
                         }
-               
-
               
                 VStack(alignment: .leading, spacing: 15) {
+                    
                     HStack {
                         Text("Coût mensuel moyen:")
                             .font(.system(size: 16))
@@ -56,11 +57,17 @@ struct CityDetailView: View {
                         Text("\(String(city.wifi)) Mbps 🛜")
                             .font(.system(size: 16))
                     }
+                    
                 }
                 .frame(maxWidth: 380)
-                .padding()
-
+                
+                
                 Divider()
+                
+                ReviewCellView(post: $post, note: $note, city: city)
+                    .padding(.horizontal, 4)
+                    
+                   
             }
         }
         .ignoresSafeArea()
@@ -69,5 +76,6 @@ struct CityDetailView: View {
 
 #Preview {
     CityDetailView(city: cities[10])
+        .environmentObject(ReviewViewModel())
 }
 

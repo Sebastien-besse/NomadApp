@@ -37,42 +37,45 @@ struct ReviewCellView: View {
                 }
                 Spacer()
                 Button {
-                    if !post.isEmpty{
+                    if !post.isEmpty {
                         reviews.addReview(city: city, post: post, note: note)
                     }
                     post = ""
                     note = 0
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
-                        .overlay{
+                        .frame(width: 120, height: 50) // Taille explicite
+                        .foregroundStyle(colorButton)
+                        .overlay {
                             Text("Post review")
                                 .foregroundStyle(.white)
                                 .bold()
-                                
                         }
-                        .frame(maxWidth: 120, maxHeight: 50)
-                        .foregroundStyle(colorButton)
                 }
+                .padding(.leading, 20) 
             }
-            .padding()
+            .padding(.bottom)
+   
             if let cityReviews = reviews.cityReviews.first(where: {$0.id == city.id})?.review{
                 ForEach(cityReviews){review in
                     HStack(alignment: .top){
                         Text(review.post)
+                            .font(.system(size: 14))
                         .bold()
                         .textFieldStyle(.plain)
                         Spacer()
                         VStack{
                             Text("⭐️")
                             Text("\(String(review.note))/5")
-                                .bold()
+                                .font(.system(size: 14))
+                                .fontWeight(.semibold)
                         }
                     }
+                    .padding(.top, 8)
                     
                 }
             }
         }
-        .padding()
     }
 }
 

@@ -31,4 +31,5 @@ struct CitiesListView: View {
 
 #Preview {
     CitiesListView()
+        .environmentObject(ReviewViewModel())
 }
